@@ -7,7 +7,7 @@
 #include "backgroundhandler.h"
 #include "helptexthandler.h"
 
-#define COIN_AMOUNT 15
+#define COIN_AMOUNT 5
 
 typedef struct {
 	int mEntityID;

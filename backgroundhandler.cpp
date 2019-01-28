@@ -16,7 +16,7 @@
 #include "healthbarhandler.h"
 #include "playerhandler.h"
 
-#define MAP_SIZE 40
+#define MAP_SIZE 20
 
 static struct {
 	MugenSpriteFile mSprites;
@@ -78,35 +78,34 @@ static void updateBlocks() {
 }
 
 static void loadLayer(char* tPath, vector<vector<int> >& tEntityIDs, double tBaseZ) {
-	ifstream fin;
-	char path[1024];
-	getFullPath(path, tPath);
-	fin.open(tPath, std::ifstream::in);
+	Buffer b = fileToBuffer(tPath);
+    BufferPointer p = getBufferPointer(b);
 
 	tEntityIDs = vector<vector<int> >(MAP_SIZE, vector<int>(MAP_SIZE, -1));
 	for (int y = 0; y < MAP_SIZE; y++) {
 		for (int x = 0; x < MAP_SIZE; x++) {
-			int value;
-			fin >> value;
+			int value = readIntegerFromTextStreamBufferPointer(&p);
 			if (!value) continue;
 			tEntityIDs[y][x] = addBlitzEntity(makePosition(32 * x, 32 * y, tBaseZ + (y / (double)MAP_SIZE)));
 			addBlitzMugenAnimationComponent(tEntityIDs[y][x], &gBackgroundHandler.mSprites, &gBackgroundHandler.mAnimations, value);
 		}
 	}
+
+    freeBuffer(b);
 }
 
 static void loadIsBlocked(char* tPath, vector<vector<int> >& tIsBlocked) {
-	ifstream fin;
-	char path[1024];
-	getFullPath(path, tPath);
-	fin.open(tPath, std::ifstream::in);
+	Buffer b = fileToBuffer(tPath);
+    BufferPointer p = getBufferPointer(b);
 
 	tIsBlocked = vector<vector<int> >(MAP_SIZE, vector<int>(MAP_SIZE, -1));
 	for (int y = 0; y < MAP_SIZE; y++) {
 		for (int x = 0; x < MAP_SIZE; x++) {
-			fin >> tIsBlocked[y][x];
+			tIsBlocked[y][x] = readIntegerFromTextStreamBufferPointer(&p);
 		}
 	}
+
+    freeBuffer(b);
 }
 
 static void setLayerVisibility(vector<vector<int> >& tEntityIDs, int tVisibility) {
@@ -146,10 +145,10 @@ int isInside()
 }
 
 static void destroyTeddy() {
-	changeBlitzMugenAnimation(gBackgroundHandler.mInEntityIDs[17][19], 75);
-	changeBlitzMugenAnimation(gBackgroundHandler.mInEntityIDs[17][20], 76);
-	changeBlitzMugenAnimation(gBackgroundHandler.mInEntityIDs[18][19], 77);
-	changeBlitzMugenAnimation(gBackgroundHandler.mInEntityIDs[18][20], 78);
+	changeBlitzMugenAnimation(gBackgroundHandler.mInEntityIDs[17 - 10][19 - 10], 75);
+	changeBlitzMugenAnimation(gBackgroundHandler.mInEntityIDs[17 - 10][20 - 10], 76);
+	changeBlitzMugenAnimation(gBackgroundHandler.mInEntityIDs[18 - 10][19 - 10], 77);
+	changeBlitzMugenAnimation(gBackgroundHandler.mInEntityIDs[18 - 10][20 - 10], 78);
 }
 
 static void removeTint() {

@@ -35,7 +35,7 @@ static void loadPlayer(void* tData) {
 	gPlayer.mSprites = loadMugenSpriteFileWithoutPalette("player/PLAYER.sff");
 	gPlayer.mAnimations = loadMugenAnimationFile("player/PLAYER.air");
 
-	gPlayer.mEntityID = addBlitzEntity(makePosition(32 * 20, 32 * 20, 10));
+	gPlayer.mEntityID = addBlitzEntity(makePosition(32 * 20 - 320, 32 * 20 - 320, 10));
 	addBlitzMugenAnimationComponent(gPlayer.mEntityID, &gPlayer.mSprites, &gPlayer.mAnimations, 10);
 	addBlitzPhysicsComponent(gPlayer.mEntityID);
 	addBlitzCollisionComponent(gPlayer.mEntityID);
@@ -141,7 +141,7 @@ static void updatePlayerShooting() {
 static void updatePlayerMovement() {
 
 	Position p = getBlitzEntityPosition(gPlayer.mEntityID);
-	p = clampPositionToGeoRectangle(p, makeGeoRectangle(10, 10, 1270, 1270));
+	p = clampPositionToGeoRectangle(p, makeGeoRectangle(10, 10, 1270 - 640, 1270 - 640));
 	setBlitzEntityPosition(gPlayer.mEntityID, p);
 
 	double speed = 3;
@@ -179,7 +179,7 @@ static void updatePlayerMovement() {
 	setBlitzPhysicsVelocityY(gPlayer.mEntityID, delta.y);
 
 	Position finalPos = vecSub(getBlitzEntityPosition(gPlayer.mEntityID), makePosition(160, 120, 0));
-	finalPos = clampPositionToGeoRectangle(finalPos, makeGeoRectangle(0, 0, 1280 - 320, 1280 - 240));
+	finalPos = clampPositionToGeoRectangle(finalPos, makeGeoRectangle(0, 0, 1280 - 320 - 640, 1280 - 240 - 640));
 	setBlitzCameraHandlerPosition(finalPos);
 }
 
@@ -194,10 +194,10 @@ static void updatePlayerAnimation() {
 static void updateInsideOutsideSwitch() {
 	Position p = getBlitzEntityPosition(gPlayer.mEntityID);
 
-	if (isInside() && p.y > 677) {
+	if (isInside() && p.y > 677 - 320) {
 		setOutside();
 	}
-	else if (!isInside() && p.y > 549 && p.y < 668 && p.x > 549 && p.x < 699) {
+	else if (!isInside() && p.y > 549 - 320 && p.y < 668 - 320 && p.x > 549 - 320 && p.x < 699 - 320) {
 		setInside();
 	}
 }
@@ -226,6 +226,7 @@ static void updatePlayer(void* tData) {
 	updatePlayerMovement();
 	updatePlayerAnimation();
 	updateInsideOutsideSwitch();
+    updatePlayerHealthOnScreen();
 }
 
 ActorBlueprint getPlayerHandler()

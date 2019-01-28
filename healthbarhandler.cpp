@@ -91,6 +91,18 @@ int getPlayerHealth()
 	return gHealthBarHandler.mPlayerCurrentHealth;
 }
 
+void updatePlayerHealthOnScreen() {
+    if (!gHealthBarHandler.mIsActive) return;
+    Position p = getPlayerPosition();
+    Position camera = getBlitzCameraHandlerPosition();
+
+    Position screenPos = vecSub(p, camera);
+    Position finalPos = vecAdd(screenPos, makePosition(-25,-40, 0));
+    setMugenAnimationPosition(gHealthBarHandler.mPlayerBGAnimationID, makePosition(finalPos.x, finalPos.y, 20));
+    setMugenAnimationPosition(gHealthBarHandler.mPlayerFGAnimationID, makePosition(finalPos.x, finalPos.y, 21));
+}
+
+
 void decreaseHouseHealth()
 {
 	gHealthBarHandler.mHouseCurrentHealth--;

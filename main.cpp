@@ -57,6 +57,7 @@ int main(int argc, char** argv) {
 		exitGame();
 	}
 
+	addMugenFont(-1, "font/f4x6.fnt");
 	addMugenFont(1, "font/jg.fnt");
 	setScreenAfterWrapperLogoScreen(getLogoScreenFromWrapper());
 	startScreenHandling(getGameScreen());

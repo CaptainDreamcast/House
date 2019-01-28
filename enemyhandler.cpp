@@ -168,26 +168,26 @@ static void addStationaryEnemy(int i, Position tPosition, Vector3DI tFacing) {
 
 void spawnFirstEnemies()
 {
-	addStationaryEnemy(0, makePosition(540, 660, 4), makeVector3DI(1, 0, 0));
-	addStationaryEnemy(1, makePosition(540, 660 - 32 * 1, 4), makeVector3DI(1, 0, 0));
-	addStationaryEnemy(2, makePosition(540, 660 - 32 * 2, 4), makeVector3DI(1, 0, 0));
-	addStationaryEnemy(3, makePosition(540, 660 - 32 * 3, 4), makeVector3DI(1, 0, 0));
+	addStationaryEnemy(0, makePosition(540 - 320, 660 - 320, 4), makeVector3DI(1, 0, 0));
+	addStationaryEnemy(1, makePosition(540 - 320, 660 - 32 * 1 - 320, 4), makeVector3DI(1, 0, 0));
+	addStationaryEnemy(2, makePosition(540 - 320, 660 - 32 * 2 - 320, 4), makeVector3DI(1, 0, 0));
+	addStationaryEnemy(3, makePosition(540 - 320, 660 - 32 * 3 - 320, 4), makeVector3DI(1, 0, 0));
 
-	addStationaryEnemy(4, makePosition(560, 680, 4), makeVector3DI(0, -1, 0));
-	addStationaryEnemy(5, makePosition(560 + 32 * 1, 680, 4), makeVector3DI(0, -1, 0));
-	addStationaryEnemy(6, makePosition(560 + 32 * 2, 680, 4), makeVector3DI(0, -1, 0));
-	addStationaryEnemy(7, makePosition(560 + 32 * 4, 680, 4), makeVector3DI(0, -1, 0));
+	addStationaryEnemy(4, makePosition(560 - 320, 680 - 320, 4), makeVector3DI(0, -1, 0));
+	addStationaryEnemy(5, makePosition(560 + 32 * 1 - 320, 680 - 320, 4), makeVector3DI(0, -1, 0));
+	addStationaryEnemy(6, makePosition(560 + 32 * 2 - 320, 680 - 320, 4), makeVector3DI(0, -1, 0));
+	addStationaryEnemy(7, makePosition(560 + 32 * 4 - 320, 680 - 320, 4), makeVector3DI(0, -1, 0));
 
-	addStationaryEnemy(8, makePosition(560, 544, 4), makeVector3DI(0, 1, 0));
-	addStationaryEnemy(9, makePosition(560 + 32 * 1, 544, 4), makeVector3DI(0, 1, 0));
-	addStationaryEnemy(10, makePosition(560 + 32 * 2, 544, 4), makeVector3DI(0, 1, 0));
-	addStationaryEnemy(11, makePosition(560 + 32 * 3, 544, 4), makeVector3DI(0, 1, 0));
-	addStationaryEnemy(12, makePosition(560 + 32 * 4, 544, 4), makeVector3DI(0, 1, 0));
+	addStationaryEnemy(8, makePosition(560 - 320, 544 - 320, 4), makeVector3DI(0, 1, 0));
+	addStationaryEnemy(9, makePosition(560 + 32 * 1 - 320, 544 - 320, 4), makeVector3DI(0, 1, 0));
+	addStationaryEnemy(10, makePosition(560 + 32 * 2 - 320, 544 - 320, 4), makeVector3DI(0, 1, 0));
+	addStationaryEnemy(11, makePosition(560 + 32 * 3 - 320, 544 - 320, 4), makeVector3DI(0, 1, 0));
+	addStationaryEnemy(12, makePosition(560 + 32 * 4 - 320, 544 - 320, 4), makeVector3DI(0, 1, 0));
 
-	addStationaryEnemy(13, makePosition(709, 660, 4), makeVector3DI(-1, 0, 0));
-	addStationaryEnemy(14, makePosition(709, 660 - 32 * 1, 4), makeVector3DI(-1, 0, 0));
-	addStationaryEnemy(15, makePosition(709, 660 - 32 * 2, 4), makeVector3DI(-1, 0, 0));
-	addStationaryEnemy(16, makePosition(709, 660 - 32 * 3, 4), makeVector3DI(-1, 0, 0));
+	addStationaryEnemy(13, makePosition(709 - 320, 660 - 320, 4), makeVector3DI(-1, 0, 0));
+	addStationaryEnemy(14, makePosition(709 - 320, 660 - 32 * 1 - 320, 4), makeVector3DI(-1, 0, 0));
+	addStationaryEnemy(15, makePosition(709 - 320, 660 - 32 * 2 - 320, 4), makeVector3DI(-1, 0, 0));
+	addStationaryEnemy(16, makePosition(709 - 320, 660 - 32 * 3 - 320, 4), makeVector3DI(-1, 0, 0));
 
 
 
@@ -198,7 +198,7 @@ void spawnEnemyInHouse()
 	Enemy& enemy = gEnemyHandler.mHouseEnemy;
 	addGeneralEnemy(enemy, 2);
 
-	Position p = makePosition(640, 629, 4);
+	Position p = makePosition(640 - 320, 629 - 320, 4);
 	setBlitzEntityPosition(enemy.mEntityID, p);
 	enemy.mFinalTarget = enemy.mCurrentTarget = p;
 

@@ -10,6 +10,7 @@ void setHealthbarsInactive();
 void decreasePlayerHealth();
 void resetPlayerHealth();
 int getPlayerHealth();
+void updatePlayerHealthOnScreen();
 
 void decreaseHouseHealth();
 void increaseHouseHealth(int tMoney);

@@ -1,4 +1,4 @@
-#include "Sleephandler.h"
+#include "sleephandler.h"
 
 #include "playerhandler.h"
 #include "gamescreen.h"
@@ -31,7 +31,7 @@ static void loadSleepHandler(void* tData) {
 
 static int isInRange() {
 	Position p = getPlayerPosition();
-	Position bed = makePosition(580, 645, 0);
+	Position bed = makePosition(580 -10*32, 645 -10*32, 0);
 	double l = getDistance2D(p, bed);
 	return l < 32;
 }

@@ -24,7 +24,7 @@ static void loadPiggybankHandler(void* tData) {
 
 static int isInRange() {
 	Position p = getPlayerPosition();
-	Position piggy = makePosition(685, 645, 0);
+	Position piggy = makePosition(685 - 320, 645 - 320, 0);
 	double l = getDistance2D(p, piggy);
 	return l < 32;
 }

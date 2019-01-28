@@ -16,25 +16,25 @@ ActorBlueprint getMusicHandler()
 void playPeacefulMusic()
 {
 	stopStreamingMusicFile();
-	streamMusicFile("music/PEACEFUL.ogg");
+	// streamMusicFile("music/PEACEFUL.ogg");
 }
 
 void playActionMusic()
 {
 	stopStreamingMusicFile();
-	streamMusicFile("music/ACTION.ogg");
+	//streamMusicFile("music/ACTION.ogg");
 }
 
 void playSadMusic()
 {
 	stopStreamingMusicFile();
-	streamMusicFile("music/SAD.ogg");
+	//streamMusicFile("music/SAD.ogg");
 }
 
 void playDiscordMusic()
 {
 	stopStreamingMusicFile();
-	streamMusicFile("music/DISCORD.ogg");
+	//streamMusicFile("music/DISCORD.ogg");
 }
 
 void stopGameMusic()
