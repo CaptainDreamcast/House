@@ -1,0 +1,4 @@
+OBJS = main.o \
+backgroundhandler.o coinhandler.o collision.o enemyhandler.o gamescreen.o healthbarhandler.o \
+helptexthandler.o musichandler.o piggybankhandler.o playerhandler.o scratchinghandler.o sleephandler.o \
+titlehandler.o 

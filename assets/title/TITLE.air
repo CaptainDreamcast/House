@@ -1,0 +1,12 @@
+
+[Begin Action 1000]
+1,1, 0,0, 10
+
+[Begin Action 2000]
+1,0, 0,0, 10
+
+[Begin Action 3000]
+2,0, 0,0, 10
+
+[Begin Action 4000]
+3,0, 0,0, 10
